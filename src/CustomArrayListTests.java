@@ -277,7 +277,54 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		Assert.assertTrue(numbers.getElement(1) == 3);
 	}
 	
+	@Test
+	public void testRemoveAllElementsAndCheckPos4() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		userNums.add(1);
+		userNums.add(2);
+		userNums.add(3);
+		userNums.add(4);
+		
+		numbers.removeAll(userNums);
+		
+		Assert.assertTrue(numbers.size() == 4);
+		Assert.assertTrue(numbers.getElement(0) == null);
+		Assert.assertTrue(numbers.getElement(1) == null);
+		Assert.assertTrue(numbers.getElement(2) == null);
+	}
+	
+	@Test
+	public void containsElement() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		boolean isContains2 = numbers.contains(2);
+		boolean isContainsNum = numbers.contains(13);
+		
+		Assert.assertTrue(isContains2 == true);
+		Assert.assertTrue(isContainsNum == false);
+		
+	}
+	
 }
+
+
+
+
+
+
+
 
 
 
