@@ -10,11 +10,19 @@ public class Main {
 		
 		
 		
-		userNums.add(1);
-		userNums.add(2);
-		userNums.add(3);
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
 		
-		numbers.addAll(userNums);
+		userNums.add(2);
+		
+		numbers.removeAll(userNums);
+		
+		System.out.println(numbers.getElement(0));
+		System.out.println(numbers.getElement(1));
+		System.out.println(numbers.getElement(2));
+		System.out.println(numbers);
 		
 		
 		

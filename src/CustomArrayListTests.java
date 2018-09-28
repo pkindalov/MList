@@ -183,6 +183,100 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		Assert.assertTrue(numbers.getElement(2) == 3);
 	}
 	
+	
+	
+	@Test
+	public void removeAllElements() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		
+		userNums.add(2);
+		userNums.add(3);
+		
+		numbers.removeAll(userNums);
+		
+		Assert.assertTrue(numbers.size() == 6);
+		
+	}
+	
+	
+	@Test
+	public void removeAllElAndCheckPosition() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		
+		userNums.add(2);
+		userNums.add(3);
+		
+		Assert.assertTrue(numbers.getElement(0) == 1);
+	}
+	
+	@Test
+	public void removeAllElAndCheckNumberInMiddle() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		userNums.add(2);
+		
+		numbers.removeAll(userNums);
+		
+		Assert.assertTrue(numbers.getElement(1) == 3);
+		Assert.assertTrue(numbers.getElement(0) == 1);
+		Assert.assertTrue(numbers.getElement(2) == 4);
+		
+	}
+	
+	@Test
+	public void testRemoveAllElementsAndCheckPos2() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		userNums.add(1);
+		
+		numbers.removeAll(userNums);
+		
+		Assert.assertTrue(numbers.getElement(0) == 2);
+		Assert.assertTrue(numbers.getElement(1) == 3);
+		Assert.assertTrue(numbers.getElement(2) == 4);
+	}
+	
+	@Test
+	public void testRemoveAllElementsAndCheckPos3() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> userNums = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		userNums.add(1);
+		userNums.add(4);
+		
+		numbers.removeAll(userNums);
+		
+		Assert.assertTrue(numbers.getElement(0) == 2);
+		Assert.assertTrue(numbers.getElement(1) == 3);
+	}
+	
 }
 
 
