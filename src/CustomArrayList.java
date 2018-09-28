@@ -214,6 +214,43 @@ public class CustomArrayList<T extends Comparable<T>> {
 		}
 		
 		
+		//rewrite null positions
+		//[1, null, 3, 4, null, null, null]
+		oldArray = this.myCustomList;
+		this.myCustomList = (T[])Array.newInstance(this.cl, oldArray.length);
+		boolean isNull = false;
+		int elementIndex = 0;
+		int counter = 0;
+		int howManyNulls = 0;
+		
+		for(int i = 0; i < oldArray.length - 1; i++) {
+			
+			if(oldArray[i] == null) {
+				isNull = true;
+				howManyNulls++;
+			}
+			
+			if(isNull) {
+				elementIndex = i;
+				counter = i;
+				while(oldArray[counter] == null && counter < oldArray.length - 1) {
+					counter++;
+					i++;
+				}
+				this.myCustomList[elementIndex] = oldArray[counter];
+				
+			}else {
+				this.myCustomList[i - howManyNulls] = oldArray[i];
+			}
+			
+			
+			
+			isNull = false;
+			
+			
+		}
+		
+		
 		
 //		for(int i = 0; i < userCollArray.length; i++) {
 //			for(int a = 0; a < oldArray.length; a++) {
