@@ -355,6 +355,66 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		Assert.assertTrue(words.contains("like") == false);
 	}
 	
+	
+	@Test(expected = Exception.class)
+	public void removeNumOnBigPos() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(15);
+		
+	}
+	
+	
+	@Test(expected = Exception.class)
+	public void removeNumOnNegativePos() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(-12);
+	}
+	
+	
+	@Test
+	public void removeElementOnValidPos() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(2);
+		
+		Assert.assertTrue(numbers.size() == 7);
+		Assert.assertTrue(numbers.contains(3) == false);
+	}
+	
+	
+	@Test
+	public void checkPosAfterRemoveValidElement() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(1);
+		
+		Assert.assertTrue(numbers.size() == 7);
+		Assert.assertTrue(numbers.getElement(0) == 1);
+		Assert.assertTrue(numbers.getElement(1) == 3);
+		Assert.assertTrue(numbers.getElement(2) == 4);
+	}
 }
 
 
