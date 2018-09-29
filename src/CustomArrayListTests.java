@@ -317,6 +317,44 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 	}
 	
+	@Test
+	public void containsElement2() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		Assert.assertTrue(numbers.contains(15) == false);
+		Assert.assertTrue(numbers.contains(-12) == false);
+		Assert.assertTrue(numbers.contains(4) == true);
+		Assert.assertTrue(numbers.contains(1) == true);
+	}
+	
+	
+	@Test
+	public void containsString() {
+		CustomArrayList<String> words = new CustomArrayList<String>(String.class);
+		
+		words.addElement("I");
+		words.addElement("like");
+		words.addElement("Java");
+		
+		Assert.assertTrue(words.contains("like") == true);
+		Assert.assertTrue(words.contains("I") == true);
+		Assert.assertTrue(words.contains("Java") == true);
+		Assert.assertTrue(words.contains("java") == false);
+	}
+	
+	@Test
+	public void testEmptyList() {
+		CustomArrayList<String> words = new CustomArrayList<String>(String.class);
+		
+		Assert.assertTrue(words.contains(null) == true);
+		Assert.assertTrue(words.contains("like") == false);
+	}
+	
 }
 
 
