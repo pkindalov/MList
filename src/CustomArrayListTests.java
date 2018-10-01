@@ -490,7 +490,7 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 	
 	@Test(expected = Exception.class)
 	public void removeUnexistingElement() throws Exception {
-CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		numbers.addElement(1);
 		numbers.addElement(2);
@@ -498,6 +498,38 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		numbers.addElement(4);
 		
 		numbers.removeElementAt(24);
+	}
+	
+	
+	@Test
+	public void testSize() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		
+		Assert.assertTrue(numbers.size() == 1);
+	}
+	
+	
+	@Test
+	public void testSizeOfListWithNoElements() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		Assert.assertTrue(numbers.size() == 0);
+	}
+	
+	@Test
+	public void clearListAddElementsAndTestSize() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		
+		Assert.assertTrue(numbers.size() == 2);
+		
+		numbers.clear();
+		
+		Assert.assertTrue(numbers.size() == 0);
 	}
 }
 

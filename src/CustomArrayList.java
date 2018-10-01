@@ -338,8 +338,8 @@ public class CustomArrayList<T extends Comparable<T>> {
 	@SuppressWarnings("unchecked")
 	public void clear() {
 		int sizeOfCollection = this.myCustomList.length;
-		
 		this.myCustomList = (T[])Array.newInstance(this.cl, sizeOfCollection);
+		this.index = 0;
 	}
 	
 	

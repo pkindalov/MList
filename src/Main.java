@@ -11,8 +11,8 @@ public class Main {
 		
 		numbers.addElement(1);
 		numbers.addElement(2);
-		numbers.addElement(3);
-		numbers.addElement(4);
+		
+		numbers.clear();
 		
 //		numbers.removeElement2(4);
 //		numbers.removeElement2(1);
