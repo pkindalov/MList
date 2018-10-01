@@ -141,6 +141,7 @@ public class CustomArrayList<T extends Comparable<T>> {
 		for(T myListEl : this.myCustomList) {
 			if(c.contains(myListEl)) {
 				repeatedElementsCount++;
+				this.index--;
 			}
 		}
 		
@@ -169,6 +170,7 @@ public class CustomArrayList<T extends Comparable<T>> {
 			bothCollections[i] = oldArray[i];
 			if(oldArray[i] != null) {
 				currIndex++;
+				
 			}
 		}
 		
@@ -296,7 +298,38 @@ public class CustomArrayList<T extends Comparable<T>> {
 			}
 		}
 		
-		this.arrangeArrayAfterDeleteElement(oldArray);
+		this.index--;
+		this.arrangeArrayAfterDeleteElement(this.myCustomList);
+		
+		
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public void removeElementAt(T element) throws Exception {
+		boolean foundElement = false;
+		
+		if(searchElementInList(element)) {
+			foundElement = true;
+		}
+		
+		
+		if(!foundElement) {
+			throw new Exception("No such element found");
+		}
+		
+		T[] oldArray = this.myCustomList;
+		this.myCustomList = (T[])Array.newInstance(this.cl, oldArray.length - 1);
+		
+		for(int i = 0; i < oldArray.length; i++) {
+			if(oldArray[i] != element && oldArray[i] != null) {
+				this.myCustomList[i] = oldArray[i];
+			}
+		}
+		
+		
+		this.index--;
+		this.arrangeArrayAfterDeleteElement(this.myCustomList);
 		
 		
 	}
@@ -311,7 +344,8 @@ public class CustomArrayList<T extends Comparable<T>> {
 	
 	
 	public int size() {
-		return this.myCustomList.length;
+		return this.index;
+//		return this.myCustomList.length;
 	}
 	
 	
@@ -373,6 +407,18 @@ public class CustomArrayList<T extends Comparable<T>> {
 			
 			
 		}
+	}
+	
+	
+	private boolean searchElementInList(T element) {
+		
+		for(int i = 0; i < this.myCustomList.length; i++) {
+			if(this.myCustomList[i] == element) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 }

@@ -199,7 +199,7 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		numbers.removeAll(userNums);
 		
-		Assert.assertTrue(numbers.size() == 6);
+		Assert.assertTrue(numbers.size() == 1);
 		
 	}
 	
@@ -294,7 +294,7 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		numbers.removeAll(userNums);
 		
-		Assert.assertTrue(numbers.size() == 4);
+		Assert.assertTrue(numbers.size() == 0);
 		Assert.assertTrue(numbers.getElement(0) == null);
 		Assert.assertTrue(numbers.getElement(1) == null);
 		Assert.assertTrue(numbers.getElement(2) == null);
@@ -394,7 +394,7 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		numbers.removeElement(2);
 		
-		Assert.assertTrue(numbers.size() == 7);
+		Assert.assertTrue(numbers.size() == 3);
 		Assert.assertTrue(numbers.contains(3) == false);
 	}
 	
@@ -410,12 +410,97 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		numbers.removeElement(1);
 		
-		Assert.assertTrue(numbers.size() == 7);
+		Assert.assertTrue(numbers.size() == 3);
 		Assert.assertTrue(numbers.getElement(0) == 1);
 		Assert.assertTrue(numbers.getElement(1) == 3);
 		Assert.assertTrue(numbers.getElement(2) == 4);
 	}
+	
+	@Test(expected = Exception.class)
+	public void removeElOnNegativePosition() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(-2);
+	}
+	
+	@Test(expected = Exception.class)
+	public void removeElOnBigPos() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(45);
+	}
+	
+	@Test
+	public void removeElementsByPos() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(0);
+		numbers.removeElement(2);
+		
+		Assert.assertTrue(!numbers.contains(1));
+		Assert.assertTrue(!numbers.contains(4));
+		
+		
+	}
+	
+	
+	@Test
+	public void removeElement() throws Exception {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElementAt(4);
+		Assert.assertFalse(numbers.contains(4));
+	}
+	
+	@Test
+	public void removeElementAndCheckArrange() throws Exception {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElementAt(1);
+		numbers.removeElementAt(4);
+		
+		Assert.assertTrue(numbers.getElement(0) == 2);
+		Assert.assertTrue(numbers.getElement(1) == 3);
+	}
+	
+	@Test(expected = Exception.class)
+	public void removeUnexistingElement() throws Exception {
+CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElementAt(24);
+	}
 }
+
 
 
 

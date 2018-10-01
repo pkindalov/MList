@@ -1,13 +1,12 @@
 //import java.awtList;
-import java.util.ArrayList;
+
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
 //		MyCustomList<String> testList = new MyCustomList<String>();
 		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
-		ArrayList<Integer> userNums = new ArrayList<>();
-		
+//		ArrayList<Integer> userNums = new ArrayList<>();
 		
 		
 		numbers.addElement(1);
@@ -15,14 +14,24 @@ public class Main {
 		numbers.addElement(3);
 		numbers.addElement(4);
 		
-		userNums.add(2);
+//		numbers.removeElement2(4);
+//		numbers.removeElement2(1);
+		System.out.println(numbers.size());
 		
-		numbers.removeAll(userNums);
 		
-		System.out.println(numbers.getElement(0));
-		System.out.println(numbers.getElement(1));
-		System.out.println(numbers.getElement(2));
-		System.out.println(numbers);
+//		numbers.addElement(1);
+//		numbers.addElement(2);
+//		numbers.addElement(3);
+//		numbers.addElement(4);
+//		
+//		userNums.add(2);
+//		
+//		numbers.removeAll(userNums);
+//		
+//		System.out.println(numbers.getElement(0));
+//		System.out.println(numbers.getElement(1));
+//		System.out.println(numbers.getElement(2));
+//		System.out.println(numbers);
 		
 		
 		
