@@ -531,6 +531,62 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		Assert.assertTrue(numbers.size() == 0);
 	}
+	
+	@Test
+	public void testSizeAfterRemoveElement() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		numbers.removeElement(0);
+		
+		Assert.assertTrue(numbers.size() == 3);
+		
+	}
+	
+	@Test
+	public void testSizeAfterRemoveSeveralElements() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> elForRemoving = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		elForRemoving.add(2);
+		elForRemoving.add(3);
+		
+		numbers.removeAll(elForRemoving);
+		
+		Assert.assertTrue(numbers.size() == 2);
+		Assert.assertTrue(numbers.toString().equals("1, 4, "));
+		
+		
+	}
+	
+	@Test
+	public void testSizeAfterRemoveAllElementsAtOnce() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> elForRemoving = new ArrayList<>();
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		numbers.addElement(4);
+		
+		elForRemoving.add(1);
+		elForRemoving.add(2);
+		elForRemoving.add(3);
+		elForRemoving.add(4);
+		
+		numbers.removeAll(elForRemoving);
+		
+		Assert.assertTrue(numbers.size() == 0);
+	}
 }
 
 
