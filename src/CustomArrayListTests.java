@@ -91,6 +91,91 @@ public class CustomArrayListTests {
 		Assert.assertTrue(numbers.getElement(position) == 5);
 	}
 	
+	@Test
+	public void testSizeAfterAddingElement() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		
+		Assert.assertTrue(numbers.size() == 1);
+	}
+	
+	@Test
+	public void testSizeAfterAddingMoreElements() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
+		numbers.addElement(3);
+		
+		Assert.assertTrue(numbers.size() == 3);
+		
+	}
+	
+	
+	@Test
+	public void testSizeWithAddCollectionMethod() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
+		
+		numsToAdd.add(1);
+		numsToAdd.add(2);
+		numsToAdd.add(5);
+		
+		numbers.addAll(numsToAdd);
+		
+		Assert.assertTrue(numbers.size() == 3);
+		
+	}
+	
+	
+	@Test
+	public void testSizeAddCollection() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
+		
+		numsToAdd.add(1);
+		numsToAdd.add(2);
+		numsToAdd.add(5);
+		numsToAdd.add(10);
+		numsToAdd.add(12);
+		numsToAdd.add(16);
+		numsToAdd.add(14);
+		numsToAdd.add(17);
+		numsToAdd.add(18);
+		numsToAdd.add(22);
+		
+		numbers.addAll(numsToAdd);
+		
+		Assert.assertTrue(numbers.size() == 10);
+	}
+	
+	@Test
+	public void testSizeAddCollectionOnExistingElements() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
+		
+		numbers.addElement(34);
+		numbers.addElement(43);
+		
+		
+		numsToAdd.add(1);
+		numsToAdd.add(2);
+		numsToAdd.add(5);
+		numsToAdd.add(10);
+		numsToAdd.add(12);
+		numsToAdd.add(16);
+		numsToAdd.add(14);
+		numsToAdd.add(17);
+		numsToAdd.add(18);
+		numsToAdd.add(22);
+		
+		numbers.addAll(numsToAdd);
+		
+		Assert.assertTrue(numbers.size() == 12);
+		
+	}
+	
 	
 	@Test()
 	public void testSequencesOfTheElements() throws Exception {

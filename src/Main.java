@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //import java.awtList;
 
 
@@ -9,15 +11,16 @@ public class Main {
 //		ArrayList<Integer> userNums = new ArrayList<>();
 		
 		
-		numbers.addElement(1);
-		numbers.addElement(2);
+		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
 		
-		numbers.clear();
+		numsToAdd.add(1);
+		numsToAdd.add(2);
+		numsToAdd.add(5);
 		
-//		numbers.removeElement2(4);
-//		numbers.removeElement2(1);
+		numbers.addAll(numsToAdd);
+		
+		
 		System.out.println(numbers.size());
-		
 		
 //		numbers.addElement(1);
 //		numbers.addElement(2);

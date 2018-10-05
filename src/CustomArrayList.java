@@ -126,7 +126,7 @@ public class CustomArrayList<T extends Comparable<T>> {
 //		}
 		
 		
-		this.index = currentIndex - 1;
+		this.index = currentIndex;
 		
 	}
 	
