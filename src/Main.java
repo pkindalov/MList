@@ -8,19 +8,30 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 //		MyCustomList<String> testList = new MyCustomList<String>();
 		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
 //		ArrayList<Integer> userNums = new ArrayList<>();
 		
+		numbers.addElement(5);
+		numbers.addElement(7);
 		
-		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
-		
-		numsToAdd.add(1);
-		numsToAdd.add(2);
-		numsToAdd.add(5);
-		
-		numbers.addAll(numsToAdd);
-		
-		
+//		copiedNumbers = numbers.clone();
+		copiedNumbers = numbers.clone(copiedNumbers);
+		copiedNumbers.removeElement(0);
+//		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
+//		
+//		System.out.println(numbers);
+//		System.out.println(copiedNumbers);
+		System.out.println(copiedNumbers.size());
 		System.out.println(numbers.size());
+		
+//		numsToAdd.add(1);
+//		numsToAdd.add(2);
+//		numsToAdd.add(5);
+//		
+//		numbers.addAll(numsToAdd);
+//		
+//		
+//		System.out.println(numbers.size());
 		
 //		numbers.addElement(1);
 //		numbers.addElement(2);

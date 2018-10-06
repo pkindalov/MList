@@ -349,6 +349,40 @@ public class CustomArrayList<T extends Comparable<T>> {
 	}
 	
 	
+	public CustomArrayList<T> clone() {
+		CustomArrayList<T> copyArray = new CustomArrayList<>(this.cl);
+		
+		for(int i = 0; i < this.myCustomList.length; i++) {
+			if(this.myCustomList[i] != null) {
+				copyArray.addElement(this.myCustomList[i]);
+			}
+			
+		}
+		
+		
+		return copyArray;
+		
+	}
+	
+	
+	public CustomArrayList<T> clone(CustomArrayList<T> userCollection){
+		
+		
+		for(int i = 0; i < this.myCustomList.length; i++) {
+			if(this.myCustomList[i] != null) {
+				userCollection.addElement(this.myCustomList[i]);
+			}
+			
+		}
+		
+		
+		
+		return userCollection;
+		
+		
+	}
+	
+	
 	
 	@Override
 	public String toString() {

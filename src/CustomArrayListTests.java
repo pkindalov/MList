@@ -301,6 +301,8 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		userNums.add(2);
 		userNums.add(3);
 		
+		numbers.removeAll(userNums);
+		
 		Assert.assertTrue(numbers.getElement(0) == 1);
 	}
 	
@@ -672,7 +674,76 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		
 		Assert.assertTrue(numbers.size() == 0);
 	}
+	
+	
+	@Test
+	public void testClone() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(5);
+		numbers.addElement(7);
+		
+		copiedNumbers = numbers.clone(copiedNumbers);
+		copiedNumbers.removeElement(0);
+		
+		Assert.assertTrue(copiedNumbers.getElement(0) == 7);
+		
+	}
+	
+	
+	@Test
+	public void testClonedListSize() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(5);
+		numbers.addElement(7);
+		
+		copiedNumbers = numbers.clone(copiedNumbers);
+		copiedNumbers.removeElement(0);
+		
+		Assert.assertTrue(copiedNumbers.size() == 1);
+		
+	}
+	
+	@Test
+	public void testCloneSizeWithoutParams() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(5);
+		numbers.addElement(7);
+		
+		copiedNumbers = numbers.clone();
+		
+		Assert.assertTrue(copiedNumbers.size() == 2);
+	}
+	
+	
+	@Test
+	public void testCloneSizeWithoutParamsAndRemElement() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
+		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
+		
+		numbers.addElement(5);
+		numbers.addElement(7);
+		
+		copiedNumbers = numbers.clone();
+		copiedNumbers.removeElement(1);
+		
+		Assert.assertTrue(copiedNumbers.size() == 1);
+	}
+	
+	
+	
+
+	
+	
 }
+
+
+
 
 
 
