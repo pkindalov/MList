@@ -432,6 +432,11 @@ public class CustomArrayList<T extends Comparable<T>> {
 	}
 	
 	
+	public int minCapacitySize() {
+		return this.myCustomList.length;
+	}
+	
+	
 	
 	public int indexOf(T element) {
 		boolean isFound = false;

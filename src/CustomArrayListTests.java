@@ -735,8 +735,94 @@ CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 		Assert.assertTrue(copiedNumbers.size() == 1);
 	}
 	
+	@Test
+	public void testEnsureCapacity() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		numbers.ensureCapacity(24);
+		Assert.assertTrue(numbers.minCapacitySize() == 24);	
+	}
 	
 	
+	@Test(expected = NegativeArraySizeException.class)
+	public void testEnsureCapacityNegativeValue() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		numbers.ensureCapacity(-10);
+		
+	}
+	
+	@Test
+	public void testIndexOfWithNums() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		numbers.addElement(5);
+		numbers.addElement(2);
+		numbers.addElement(-101);
+		numbers.addElement(25);
+		numbers.addElement(8);
+		
+		
+		Assert.assertTrue(numbers.indexOf(25) == 3);
+		Assert.assertTrue(numbers.indexOf(5) == 0);
+		Assert.assertTrue(numbers.indexOf(8) == 4);
+		Assert.assertTrue(numbers.indexOf(-101) == 2);
+	}
+	
+	
+	@Test
+	public void testIndexOfWithNumsNegativeValues() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		numbers.addElement(0);
+		numbers.addElement(-5);
+		numbers.addElement(250);
+		
+		Assert.assertTrue(numbers.indexOf(5) == -1);
+	}
+	
+	@Test
+	public void testIndexOfStrings() {
+		CustomArrayList<String> words = new CustomArrayList<>(String.class);
+		
+		words.addElement("I");
+		words.addElement("like");
+		words.addElement("Java");
+		
+		Assert.assertTrue(words.indexOf("Java") == 2);
+	}
+	
+	@Test
+	public void testIndexOfStrNotFound() {
+		CustomArrayList<String> words = new CustomArrayList<>(String.class);
+		
+		words.addElement("I");
+		words.addElement("like");
+		words.addElement("Java");
+		
+		Assert.assertTrue(words.indexOf("C#") == -1);
+		
+		
+	}
+	
+	
+	@Test
+	public void testIsEmpty() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		numbers.addElement(4);
+		numbers.addElement(6);
+		
+		Assert.assertTrue(numbers.isEmpty() == false);
+	}
+	
+	
+	@Test
+	public void testIsEmpty2() {
+		CustomArrayList<Integer> numbers = new CustomArrayList<>(Integer.class);
+		
+		Assert.assertTrue(numbers.isEmpty() == true);
+	}
 
 	
 	

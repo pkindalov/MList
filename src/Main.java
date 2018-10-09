@@ -10,24 +10,24 @@ public class Main {
 		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
 //		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
 //		ArrayList<Integer> userNums = new ArrayList<>();
-		ArrayList<Integer> elForRemoving = new ArrayList<>();
+//		ArrayList<Integer> elForRemoving = new ArrayList<>();
 		
 		
 		
 		
 		
-		numbers.addElement(1);
-		numbers.addElement(2);
-		numbers.addElement(5);
-		numbers.addElement(7);
-		
-
-		
-		numbers.removeRange(0, 1);
-		
-		System.out.println(numbers);
-		System.out.println(numbers.getElement(0));
-		System.out.println(numbers.getElement(1));
+//		numbers.addElement(1);
+//		numbers.addElement(2);
+//		numbers.addElement(5);
+//		numbers.addElement(7);
+//		
+//
+//		
+//		numbers.removeRange(0, 1);
+//		
+//		System.out.println(numbers);
+//		System.out.println(numbers.getElement(0));
+//		System.out.println(numbers.getElement(1));
 		
 		
 		
@@ -44,8 +44,8 @@ public class Main {
 //		System.out.println(numbers);
 		
 		
-//		numbers.ensureCapacity(30);
-//		System.out.println(numbers.size());
+//		numbers.ensureCapacity(23);
+		System.out.println(numbers.minCapacitySize());
 //		int pos = numbers.indexOf(45);
 //		
 //		System.out.println(pos);
