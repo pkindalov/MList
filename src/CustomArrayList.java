@@ -336,6 +336,42 @@ public class CustomArrayList<T extends Comparable<T>> {
 	
 	
 	@SuppressWarnings("unchecked")
+	public void removeRange(int fromIndex, int toIndex) throws Exception {
+		if(fromIndex < 0 || toIndex < 0) {
+			throw new Exception("Invalid index. Cannot be less than zero");
+		}
+		
+		if(toIndex < fromIndex) {
+			throw new Exception("Invalid index. To index cannot be less than from Index");
+		}
+		
+		int rangeElementsCount = toIndex + 1;
+		
+		
+		T[] oldArray = this.myCustomList;
+		this.myCustomList = (T[])Array.newInstance(this.cl, (oldArray.length - rangeElementsCount));
+		int size = this.myCustomList.length;
+		
+		for(int i = 0; i < oldArray.length; i++) {
+			
+			if(i >= this.myCustomList.length) {
+				break;
+			}
+			
+			if(i >= fromIndex && i <= toIndex) {
+				continue;
+			}else {
+				this.myCustomList[i] = oldArray[i];
+			}
+		}
+		
+		this.index -= toIndex ;
+		this.arrangeArrayAfterDeleteElement(myCustomList);
+		
+	}
+	
+	
+	@SuppressWarnings("unchecked")
 	public void clear() {
 		int sizeOfCollection = this.myCustomList.length;
 		this.myCustomList = (T[])Array.newInstance(this.cl, sizeOfCollection);
@@ -384,6 +420,53 @@ public class CustomArrayList<T extends Comparable<T>> {
 	
 	
 	
+	@SuppressWarnings("unchecked")
+	public void  ensureCapacity(int minCapacity) {
+		T[] oldList = this.myCustomList;
+		this.myCustomList = (T[])Array.newInstance(this.cl, minCapacity);
+		
+		for(int i = 0; i < oldList.length; i++) {
+			this.myCustomList[i] = oldList[i];
+		}
+		
+	}
+	
+	
+	
+	public int indexOf(T element) {
+		boolean isFound = false;
+		int position = -1;
+		
+		for(int i = 0; i < this.myCustomList.length; i++) {
+			if(this.myCustomList[i] == element) {
+				isFound = true;
+				position = i;
+			}
+			
+			if(isFound) {
+				break;
+			}
+		}
+		
+		return position;
+	}
+	
+	
+	
+	public boolean isEmpty() {
+		boolean isEmpty = true;
+		
+		for(int i = 0; i < this.myCustomList.length; i++) {
+			if(this.myCustomList[i] != null) {
+				isEmpty = false;
+				break;
+			}
+		}
+		
+		return isEmpty;
+	}
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -427,9 +510,10 @@ public class CustomArrayList<T extends Comparable<T>> {
 				counter = i;
 				while(oldArray[counter] == null && counter < oldArray.length - 1) {
 					counter++;
-					i++;
+//					i++;
 				}
 				this.myCustomList[elementIndex] = oldArray[counter];
+				oldArray[counter] = null;
 				
 			}else {
 				this.myCustomList[i - howManyNulls] = oldArray[i];

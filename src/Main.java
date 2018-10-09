@@ -8,21 +8,59 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 //		MyCustomList<String> testList = new MyCustomList<String>();
 		CustomArrayList<Integer> numbers = new CustomArrayList<Integer>(Integer.class);
-		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
+//		CustomArrayList<Integer> copiedNumbers = new CustomArrayList<Integer>(Integer.class);
 //		ArrayList<Integer> userNums = new ArrayList<>();
+		ArrayList<Integer> elForRemoving = new ArrayList<>();
 		
+		
+		
+		
+		
+		numbers.addElement(1);
+		numbers.addElement(2);
 		numbers.addElement(5);
 		numbers.addElement(7);
 		
+
+		
+		numbers.removeRange(0, 1);
+		
+		System.out.println(numbers);
+		System.out.println(numbers.getElement(0));
+		System.out.println(numbers.getElement(1));
+		
+		
+		
+//		numbers.addElement(1);
+//		numbers.addElement(2);
+//		numbers.addElement(3);
+//		numbers.addElement(4);
+//		
+//		elForRemoving.add(2);
+//		elForRemoving.add(3);
+//		
+//		numbers.removeAll(elForRemoving);
+//		
+//		System.out.println(numbers);
+		
+		
+//		numbers.ensureCapacity(30);
+//		System.out.println(numbers.size());
+//		int pos = numbers.indexOf(45);
+//		
+//		System.out.println(pos);
+//		System.out.println(numbers.isEmpty());
+		
+		
 //		copiedNumbers = numbers.clone();
-		copiedNumbers = numbers.clone(copiedNumbers);
-		copiedNumbers.removeElement(0);
+//		copiedNumbers = numbers.clone(copiedNumbers);
+//		copiedNumbers.removeElement(0);
 //		ArrayList<Integer> numsToAdd = new ArrayList<Integer>();
 //		
 //		System.out.println(numbers);
 //		System.out.println(copiedNumbers);
-		System.out.println(copiedNumbers.size());
-		System.out.println(numbers.size());
+//		System.out.println(copiedNumbers.size());
+//		System.out.println(numbers.size());
 		
 //		numsToAdd.add(1);
 //		numsToAdd.add(2);
